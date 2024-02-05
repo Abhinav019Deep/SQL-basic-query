@@ -1,0 +1,98 @@
+Create Database Workers
+
+CREATE TABLE workers (
+    worker_id INT PRIMARY KEY,
+    first_name CHAR(25) NOT NULL,
+    last_name CHAR(25),
+    salary INT CHECK (salary BETWEEN 10000 AND 25000),
+    joining_date DATETIME,
+    department CHAR(25) CHECK (department IN ('HR', 'Sales', 'Accts', 'IT'))
+);
+
+INSERT INTO workers (worker_id, first_name, last_name, salary, joining_date, department)
+VALUES (1, 'Abhinav', 'Deep', 30000, '2024-01-05 00:00:00', 'IT');
+
+INSERT INTO workers (worker_id, first_name, last_name, salary, joining_date, department)
+VALUES (2, 'Abhishek', 'Singh', 300000, '2024-01-05 00:00:00', 'IT');
+
+INSERT INTO workers (worker_id, first_name, last_name, salary, joining_date, department)
+VALUES (3, 'Amitabh', 'Kumar', 40000, '2024-01-05 00:00:00', 'IT');
+
+select * from workers
+
+SELECT first_name AS WORKER_NAME
+FROM workers;
+
+SELECT UPPER(first_name) AS WORKER_NAME
+FROM workers;
+
+SELECT DISTINCT department
+FROM Workers;
+
+SELECT SUBSTRING(first_name, 1, 3) AS WORKER_NAME
+FROM Workers;
+
+SELECT POSITION('a' IN first_name) AS PositionOfA
+FROM Workers
+WHERE first_name LIKE 'Amitabh';
+
+SELECT RTRIM(FIRST_NAME) AS TrimmedFirstName
+FROM Worker;
+
+
+SELECT LTRIM(DEPARTMENT) AS TrimmedDepartment
+FROM Worker;
+
+SELECT DISTINCT DEPARTMENT AS UniqueDepartment, LENGTH(DEPARTMENT) AS DepartmentLength
+FROM Worker;
+
+SELECT REPLACE(FIRST_NAME, 'a', 'A') AS UpdatedFirstName
+FROM Worker;
+
+SELECT CONCAT(FIRST_NAME, ' ', LAST_NAME) AS COMPLETE_NAME
+FROM Worker;
+
+SELECT *
+FROM Worker
+ORDER BY FIRST_NAME ASC;
+
+SELECT *
+FROM Worker
+ORDER BY FIRST_NAME ASC, DEPARTMENT DESC;
+
+SELECT *
+FROM Worker
+WHERE FIRST_NAME IN ('Vipul', 'Satish');
+
+SELECT *
+FROM Worker
+WHERE FIRST_NAME NOT IN ('Vipul', 'Satish');
+
+SELECT *
+FROM Worker
+WHERE DEPARTMENT = 'Admin';
+
+SELECT *
+FROM Worker
+WHERE FIRST_NAME LIKE '%a%';
+
+SELECT *
+FROM Worker
+WHERE FIRST_NAME LIKE '%a';
+
+SELECT *
+FROM Worker
+WHERE FIRST_NAME LIKE '_____h';
+
+SELECT *
+FROM Worker
+WHERE SALARY BETWEEN 100000 AND 500000;
+
+SELECT *
+FROM Worker
+WHERE MONTH(JOINING_DATE) = 2 AND YEAR(JOINING_DATE) = 2014;
+
+SELECT COUNT(*) AS EmployeeCount
+FROM Worker
+WHERE DEPARTMENT = 'Admin';
+
